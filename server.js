@@ -3,10 +3,12 @@ import os from "os";
 
 const config = {
   SERVER_PORT: 1337,
-  // SERVER_IP is now auto-detected for the link, or you can override it here. (nice one sherlock !)
+  SERVER_IP: getLocalIP(),
   USERNAME: "mono",
   PASSWORD: "1337",
 };
+
+const detectedIP = getLocalIP();
 
 // Helper to format IPv6 address from buffer
 function formatIPv6(buffer) {
@@ -74,7 +76,7 @@ const server = net.createServer((socket) => {
         plenIndex + 1 + plen
       );
 
-      console.log(`Auth attempt: ${uname}`);
+      console.log("Authenticating...");
 
       if (uname !== config.USERNAME || passwd !== config.PASSWORD) {
         console.error("Authentication failed");
@@ -148,6 +150,8 @@ const server = net.createServer((socket) => {
           }
         );
 
+        console.log(`Connected! 🟢`);
+
         targetSocket.on("error", (err) => {
           console.error("Target connection error:", err.message);
           try {
@@ -166,8 +170,6 @@ const server = net.createServer((socket) => {
 server.listen(config.SERVER_PORT, () => {
   console.log(`SOCKS5 proxy server listening on port ${config.SERVER_PORT}`);
   console.log(`Authentication: ${config.USERNAME}:${config.PASSWORD}`);
-
-  const detectedIP = getLocalIP();
   console.log("\n--> Telegram Proxy Deep Link <--");
   console.log(
     `https://t.me/socks?server=${detectedIP}&port=${config.SERVER_PORT}&user=${config.USERNAME}&pass=${config.PASSWORD}`
