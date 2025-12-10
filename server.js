@@ -1,11 +1,14 @@
+import dotenv from "dotenv";
 import net from "net";
 import os from "os";
+
+dotenv.config();
 
 const config = {
   SERVER_PORT: 1337,
   SERVER_IP: getLocalIP(),
-  USERNAME: "mono",
-  PASSWORD: "1337",
+  USERNAME: process.env.USERNAME,
+  PASSWORD: process.env.PASSWORD,
 };
 
 const detectedIP = getLocalIP();
