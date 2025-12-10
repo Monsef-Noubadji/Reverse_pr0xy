@@ -48,16 +48,16 @@ New-NetFirewallRule -DisplayName "WSL SSH" -Direction Inbound -LocalPort 2222 -P
 
 Now you can connect from your Mac using your Windows PC's IP address.
 
-1.  **Get Windows IP**: On Windows, run `ipconfig` and find your **Wireless LAN adapter Wi-Fi** IPv4 Address (e.g., `192.168.1.10`).
+1.  **Get Windows IP**: On Windows, run `ipconfig` and find your **Wireless LAN adapter Wi-Fi** IPv4 Address (e.g., `192.168.x.x`).
 2.  **Connect**:
     ```bash
-    # Replace 192.168.1.10 with your Windows PC IP
-    ssh -p 2222 m0n0@192.168.1.10
+    # Replace 192.168.x.x with your Windows PC IP
+    ssh -p 2222 user@192.168.x.x
     ```
 
 ## 5. (Optional) Key-Based Auth
 
 To avoid typing the password every time:
 
-1.  **On Mac**: `ssh-copy-id -p 2222 m0n0@192.168.1.10`
+1.  **On Mac**: `ssh-copy-id -p 2222 user@192.168.x.x`
     *Or manually copy `~/.ssh/id_rsa.pub` from Mac to `~/.ssh/authorized_keys` in WSL.*
