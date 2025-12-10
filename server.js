@@ -133,7 +133,7 @@ const server = net.createServer((socket) => {
 
         targetPort = requestData.readUInt16BE(offset);
 
-        console.log(`Connecting to ${targetAddress}:${targetPort}`);
+        console.log(`Connecting to ${targetAddress}:${targetPort}`); // logs to look cool and stuff
 
         const targetSocket = net.createConnection(
           targetPort,
