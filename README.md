@@ -9,7 +9,7 @@ This minimal nodejs reverse proxy can be used for any purpose you can think of, 
 3. run `npm i` to install dependencies
 4. add `.env` file into the root directory of the project and configure `USERNAME` and `PASSWORD` (those will be used to authenticate with your proxy server).
 5. start the server by running `nodemon server` or `node server`
-6. Now, you can use your proxy by configuring any machine you'd like to use you proxy `hostname`, `port` and the `USERNAME PASSWORD` from previous steps.
+6. Now, you can use your proxy by configuring any machine you'd like to use you proxy `hostname`, `port` and the `USERNAME PASSWORD` from previous steps **(example of using it with telegram is baked into the codebase for demonstration)**
 
 #### Note
 - If you're deploying the server or forwarding it to the internet, then make sure to check `/docs` directory for guidance.
