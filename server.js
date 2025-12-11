@@ -5,7 +5,7 @@ import os from "os";
 dotenv.config();
 
 const config = {
-  SERVER_PORT: 1337,
+  SERVER_PORT: process.env.PORT,
   SERVER_IP: getLocalIP(),
   USERNAME: process.env.USERNAME,
   PASSWORD: process.env.PASSWORD,
