@@ -5,7 +5,7 @@ import os from "os";
 dotenv.config();
 
 const config = {
-  SERVER_PORT: process.env.PORT,
+  SERVER_PORT: process.env.PORT || 1337,
   SERVER_IP: getLocalIP(),
   USERNAME: process.env.USERNAME,
   PASSWORD: process.env.PASSWORD,
@@ -159,7 +159,7 @@ const server = net.createServer((socket) => {
           console.error("Target connection error:", err.message);
           try {
             socket.end();
-          } catch (e) {}
+          } catch (e) { }
         });
       });
 
